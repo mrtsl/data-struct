@@ -239,8 +239,8 @@ void initlist()
 	INFOUTPUT("input create nodes:");
 	scanf("%d",&count);
 	
-	InitList(&list,count);
-	DisplayList(list);
+	//InitList(&list,count);
+	//DisplayList(list);
 	//lst = SameData(list);
 	//DisplaySameLists(lst);
 	FreeList(list);
