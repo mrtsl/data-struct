@@ -1,5 +1,36 @@
 #include "init.h" 
 
+
+void AddNodetail2(list head,Node *node)
+{
+	Node *temp = head;
+	Node *temptmp = NULL;
+	temptmp = (Node *)malloc(sizeof(*temptmp));
+	memcpy(temptmp,node,sizeof(Node));
+	if(head == NULL)
+	{
+		DEBUG("NULL head\n");
+		return;
+	}
+	else
+	{
+		while(temp->pnext != NULL)
+		{
+			temp = temp->pnext;
+		}
+		if(temptmp == NULL)
+		{
+			DEBUG("add tail fail : temptmp == NULL");
+		}
+		else
+		{
+			temptmp->id = (temp->id)++;
+			temp->pnext = temptmp;
+			temp->pnext->pnext = NULL; 	
+		}
+
+	}
+}
 lists *samelistsinit()
 {
 	lists *lst= NULL;
@@ -93,7 +124,7 @@ lists *SameData(Node *head)
 					{
 						lststemp->lstnext =  createlists();
 						lststemp->lstnext->count++;
-						AddNodetail(lststemp->lstnext->list,temp);
+						AddNodetail2(lststemp->lstnext->list,temp);
 						lststemp->lstnext->data = temp->data;
 						lststemp->lstnext->lstnext == NULL;
 						break;
@@ -101,7 +132,7 @@ lists *SameData(Node *head)
 					if(lststemp->data == temp->data)
 					{
 						lststemp->count++;
-						AddNodetail(lststemp->list,temp);
+						AddNodetail2(lststemp->list,temp);
 						flag = NODEADDSAMEOK;
 					}
 					else

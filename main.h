@@ -5,14 +5,18 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
-
+#include <stdbool.h>
 
 #include "m_structure.h"
-
+#include "init.h"
+#include "operation.h"
 
 #define INFOUTPUT    printf
 #define DEBUG    printf
 #define INFINPUT scanf
+
+#define FALSE	false
+#define TRUE	true
 
 /*main.h  in_____________________________________ main.c begin*/ 
 int selectfunction();

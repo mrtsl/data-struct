@@ -18,6 +18,7 @@ void FreeList(Node * head);
 void FreeLists(lists *head);
 void DisplayList(Node * head);
 void DisplaySameLists(lists * listhead);
+void AddNodetail2(list head,Node *node);
 list initlist(int count);
 void function();
 /*init.h  in_______________________________________ init.c end*/ 

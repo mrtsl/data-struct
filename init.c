@@ -60,7 +60,6 @@ void DisplayList(list  head)
 
 list initlist(int count)
 {
-	int t_count = count;
 	list create_list = NULL;
 	create_list = (list)malloc(sizeof(Node));
 	
@@ -70,7 +69,7 @@ list initlist(int count)
 	}
 	else
 	{	
-		InitListNode(&create_list,t_count);
+		InitListNode(&create_list,count);
 		DisplayList(create_list);
 		return create_list;
 	}

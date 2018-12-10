@@ -53,6 +53,6 @@ int main()
 
 	operation(fcnum,m_list);
 
-	
+	FreeList(m_list);
 	return 0;
 }
