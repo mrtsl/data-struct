@@ -20,8 +20,15 @@ int selectfunction()
 	INFOUTPUT("5.linked two lists.\n");
 	 
 	INFOUTPUT("please input which function you want to select:");
-	scanf("%d",&fcnum);
+	INFINPUT("%d",&fcnum);
 	return fcnum;
+}
+int firstinit()
+{
+	int count = 0;
+	INFOUTPUT("input create nodes:");
+	INFINPUT("%d",&count);
+	return count;
 }
 void setrandseed()
 {
@@ -31,10 +38,21 @@ void setrandseed()
 int main()
 {
 	int fcnum = 0;
+	int count = 0;
+	list m_list = NULL;
+	m_list = (list)malloc(sizeof(Node));
 	setrandseed();
-	fcnum = selectfunction();
+
+	count = firstinit();
+	m_list = initlist(count);
 	
-	operation(fcnum);
+
+
+	fcnum = selectfunction();
+
+
+	operation(fcnum,m_list);
+
 	
 	return 0;
 }
