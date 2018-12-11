@@ -30,16 +30,43 @@ void InitListNode(list *head ,int count)
 	}
 }
 
-void FreeList(Node * head)
-{
-	while(head != NULL)
-	{
-		free(head);
-		head = head->pnext;
-		//DEBUG("free\n");
-	}
-}
+void FreeList(Node *head)
+ {
+     if (NULL == head)
+     {
+         return;
+     }
+		 INFOUTPUT("0");
+     listEmpty(head);
 
+     free(head);
+     head = NULL;
+ }
+
+ void listEmpty(Node *head)
+{
+	int i = 0;
+	 Node *pNode =NULL;
+     if (NULL == head)
+     {
+         return;
+     }
+     while (NULL != head->pnext)
+     {
+		 i++;
+		 INFOUTPUT("1");
+         pNode = head->pnext;
+		 INFOUTPUT("2");
+         head = head->pnext->pnext;
+		 INFOUTPUT("3");
+         pNode->pnext = NULL;
+		 INFOUTPUT("4");
+         free(pNode);
+		 INFOUTPUT("5");
+         pNode = NULL;
+		 INFOUTPUT("6");
+     }
+ }
 void DisplayList(list  head)
 {
 	Node *temp = head;

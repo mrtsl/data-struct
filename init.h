@@ -15,6 +15,7 @@ lists * createlists();
 void InitListNode(Node **head ,int count);
 lists *SameData(Node *head);
 void FreeList(Node * head);
+ void listEmpty(Node *head);
 void FreeLists(lists *head);
 void DisplayList(Node * head);
 void DisplaySameLists(lists * listhead);

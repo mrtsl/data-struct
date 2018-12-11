@@ -4,13 +4,28 @@
 list create_circle()
 {
 	list temp = NULL;
+	list head = NULL;
 	int count = 0;
 
 	INFOUTPUT("circle have nodes:");
-	INFINPUT("%d",count);
+	INFINPUT("%d",&count);
 
 	temp = initlist(count);
-	
+	head = temp;
+	if(NULL == temp)
+	{
+		INFOUTPUT("create circle error\n");
+		return NULL;
+	}
+	while(temp->pnext!= NULL)
+	{
+		temp = temp->pnext;
+	}
+	temp->pnext = head->pnext;
+
+	//iscircle(head);
+
+	FreeList(head);
 	return NULL;
 }
 bool iscircle(list head)
