@@ -14,13 +14,13 @@ lists * createlists();
 
 void InitListNode(Node **head ,int count);
 lists *SameData(Node *head);
-void FreeList(Node * head);
- void listEmpty(Node *head);
+void FreeList(list head);
 void FreeLists(lists *head);
 void DisplayList(Node * head);
 void DisplaySameLists(lists * listhead);
 void AddNodetail2(list head,Node *node);
 list initlist(int count);
+void Freecircle(list ppHead);
 void function();
 /*init.h  in_______________________________________ init.c end*/ 
 

@@ -18,6 +18,7 @@ void operation(int number,list head)
 		break;
 		case ISCIRCLE:
 			iscircle(head);
+			INFOUTPUT("222222222\n");
 		break;
 		case DEL_NODE:
 			

@@ -23,41 +23,71 @@ list create_circle()
 	}
 	temp->pnext = head->pnext;
 
-	//iscircle(head);
+	iscircle(head);
 
-	FreeList(head);
+	Freecircle(head);
 	return NULL;
 }
-bool iscircle(list head)
+void iscircle(list head)
 {
 	int select;
-	list temp = head;
-	if(NULL == temp)
+	list slow = head;
+	list fast = head;
+	int i = 0;
+	int j = 0;
+	if(NULL == head)
 	{
 		INFOUTPUT("iscircle error :head NULL \n");
-		return FALSE;
+		return;
 	}
 	else
 	{
-		while (temp->pnext != NULL)
+		while (head->pnext != NULL && head->pnext->pnext != NULL)
 		{
-			if(temp->pnext == temp)
+			if(slow->pnext != NULL)
 			{
-				INFOUTPUT("this is a circle !\n");
-				return TRUE;
+				slow = slow->pnext;
+				i++;
+				//DEBUG("i: %d\n",i);
 			}
 			else
 			{
-				temp = temp->pnext;
+				break;
+			}
+			if(fast->pnext != NULL)
+			{
+				if(fast->pnext->pnext != NULL)
+				{
+					fast = fast->pnext->pnext;
+					j++;
+					//DEBUG("j :%d\n",j);
+				}
+				else
+				{
+					break;	
+				}
+			}
+			else
+			{
+				break;
+			}
+			if(slow == fast)
+			{
+				INFOUTPUT("this is a circle !\n");
+				return;
 			}
 		}
 		INFOUTPUT("this is not a circle !\n");
-		INFOUTPUT("you can create one,true(1) or false(2) :");
+		INFOUTPUT("you can create one,true(1) or false(0) :");
 		INFINPUT("%d",&select);
-		if(select)
+		if(select == 1)
 		{
 			create_circle();
 		}
-		return FALSE;
+		else
+		{
+			return;
+		}
 	}
+	return;
 }

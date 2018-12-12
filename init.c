@@ -30,43 +30,42 @@ void InitListNode(list *head ,int count)
 	}
 }
 
-void FreeList(Node *head)
+void FreeList(list head)
  {
-     if (NULL == head)
-     {
-         return;
-     }
-		 INFOUTPUT("0");
-     listEmpty(head);
-
-     free(head);
-     head = NULL;
+ 	list p = NULL;
+	list q = NULL;
+	
+	if(head == NULL)
+	return;
+	p = head;
+    while (NULL != p)
+    {
+		q = p;
+		p = p->pnext;
+		free(q);
+		q = NULL;
+    }
  }
+void Freecircle(list ppHead)
+{	
+    Node *pt = NULL;  
+  
+    while (ppHead != NULL)  
+    {  
+        if (ppHead == (ppHead)->pnext) //如果只有头节点一个  
+        {  
+            free(ppHead);  
+            ppHead = NULL;  
+        }  
+        else                    //如果不止头节点一个  
+        {  
+            pt = (ppHead)->pnext->pnext;  
+            free((ppHead)->pnext);  
+            (ppHead)->pnext = pt;  
+        }  
+    }  
 
- void listEmpty(Node *head)
-{
-	int i = 0;
-	 Node *pNode =NULL;
-     if (NULL == head)
-     {
-         return;
-     }
-     while (NULL != head->pnext)
-     {
-		 i++;
-		 INFOUTPUT("1");
-         pNode = head->pnext;
-		 INFOUTPUT("2");
-         head = head->pnext->pnext;
-		 INFOUTPUT("3");
-         pNode->pnext = NULL;
-		 INFOUTPUT("4");
-         free(pNode);
-		 INFOUTPUT("5");
-         pNode = NULL;
-		 INFOUTPUT("6");
-     }
- }
+}
 void DisplayList(list  head)
 {
 	Node *temp = head;
