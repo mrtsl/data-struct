@@ -3,7 +3,7 @@ WARNINGCC=gcc -O -Wall
 DEBUGCC=gcc -g 
 SUBDIRS=$(shell ls -l | grep ^d | awk '{if($$9 != "debug") print $$9}')
 ROOT_DIR=$(shell pwd)
-BIN=base
+BIN=tree
 OBJS_DIR=debug/obj
 BIN_DIR=debug/bin
 CUR_SOURCE=${wildcard *.c}

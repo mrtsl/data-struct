@@ -40,21 +40,18 @@ int main()
 {
 	int fcnum = 0;
 	int count = 0;
-	list m_list = NULL;
-	m_list = (list)malloc(sizeof(Node));
+	Tree m_tree = NULL;
+	m_tree = (Tree)malloc(sizeof(TreeNode));
 	setrandseed();
 
-	count = firstinit();
-	m_list = initlist(count);
-	
-
+	count = firstinit();	
 
 	fcnum = selectfunction();
 
 
-	operation(fcnum,m_list);
+	operation(fcnum);
 
-	FreeList(m_list);
+	FreeTree(m_tree);
 	return 0;
 }
 

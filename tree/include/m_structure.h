@@ -16,20 +16,12 @@
 #define FALSE	false
 #define TRUE	true
 
-
-typedef struct lk
+typedef int ElementType;
+typedef struct TreeNode
 {
-	int id;
-	struct lk *pnext;
-	int data;
-}Node, *list;
-
-typedef struct lklst
-{
-	Node *list;
-	int count;
-	int data;
-	struct lklst *lstnext;
-}lists; 
+	ElementType data;
+	struct TreeNode *left;
+	struct TreeNode *right;
+}TreeNode, *Tree;
 
 #endif   		//m_structure.h
