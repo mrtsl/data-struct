@@ -11,13 +11,14 @@
 #include "main.h"
 
 int selectfunction()
-{
+{ 
 	int fcnum = 0;
 	INFOUTPUT("1.add node.\n");
 	INFOUTPUT("2.iscircle?\n");
 	INFOUTPUT("3.delete node.\n");
 	INFOUTPUT("4.which one is center?\n");
 	INFOUTPUT("5.linked two lists.\n");
+	INFOUTPUT("6.this list same data.\n");
 	 
 	INFOUTPUT("please input which function you want to select:");
 	INFINPUT("%d",&fcnum);

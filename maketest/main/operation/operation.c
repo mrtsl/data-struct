@@ -19,9 +19,12 @@ void operation(int number,list head)
 		case LINKED:
 			fun_link(head);
 		break;
-		default:
+		case SAMELIST:
+			fun_samelist(head);
+			break;
+		default: 
 			INFOUTPUT("input error !\n");
 		break;
 	}
 	return;
-}
+} 

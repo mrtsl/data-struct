@@ -75,7 +75,7 @@ void AddNodehead(list head,Node *node)
 			if(temp->pnext != NULL)
 			temp->pnext->id++;
 		}
-	}
+	} 
 }
 void fun_AddNodehead(list head)
 {

@@ -1,7 +1,7 @@
-#include "init.h" 
+#include "samelist.h"
 
 
-void AddNodetail2(list head,Node *node)
+static void AddNodetail2(list head,Node *node)
 {
 	Node *temp = head;
 	Node *temptmp = NULL;
@@ -31,7 +31,7 @@ void AddNodetail2(list head,Node *node)
 
 	}
 }
-lists *samelistsinit()
+static lists *samelistsinit()
 {
 	lists *lst= NULL;
 	lst = (lists *)malloc(sizeof(lists));
@@ -44,13 +44,56 @@ lists *samelistsinit()
 		return lst;
 	}
 }   
+static void FreeNodeList(list head)
+ {
+ 	list p = NULL;
+	list q = NULL;
+	
+	if(head == NULL)
+	return;
+	p = head;
+    while (NULL != p)
+    {
+		q = p;
+		p = p->pnext;
+		free(q);
+    }
+ }
 
-void DisplaySameLists(lists * listhead)
+static void FreeLists(lists *head)
+{
+ 	lists *p = NULL;
+	lists *q = NULL;
+	
+	if(head == NULL)
+	return;
+	p = head;
+    while (NULL != p)
+    {
+		q = p;
+		p = p->lstnext;
+		//FreeNodeList(q->list);
+		free(q);
+		q = NULL;
+    }
+}
+
+
+static lists * createlists()
+{
+	lists *node = NULL;
+	node = (lists *)malloc(sizeof(lists));
+	node->lstnext = NULL;
+	node->list = NULL;
+	node->list = (Node *)malloc(sizeof(Node));
+	return node;
+}
+static void DisplaySameLists(lists * listhead)
 {
 	int count = 0;
 	lists *temp = listhead;
 	if(listhead == NULL)
-	{
+	{ 
 		DEBUG("display listhead error \n");
 	}
 	else
@@ -68,22 +111,7 @@ void DisplaySameLists(lists * listhead)
 	} 
 }
 
-void FreeLists(lists *head)
-{
-	while(head != NULL)
-	{
-		while(head->list)
-		{
-			free(head->list);
-			head->list = head->list->pnext;
-			//DEBUG("head list free\n");
-		}
-		free(head);
-		head = head->lstnext;
-		//DEBUG("lstnext free\n");
-	}
-}
-lists *SameData(Node *head)
+static lists *SameData(Node *head)
 {
 	Node *temp = head;
 	lists *lststemp= NULL;
@@ -146,12 +174,14 @@ lists *SameData(Node *head)
 	return lsts;
 }
 
-lists * createlists()
+static void samelist(list head)
 {
-	lists *node = NULL;
-	node = (lists *)malloc(sizeof(lists));
-	node->lstnext = NULL;
-	node->list = NULL;
-	node->list = (Node *)malloc(sizeof(Node));
-	return node;
+	lists * lst = NULL;
+	lst = SameData(head);
+	DisplaySameLists(lst);
+	FreeLists(lst);
+}
+void fun_samelist(list head)
+{
+	samelist(head);
 }

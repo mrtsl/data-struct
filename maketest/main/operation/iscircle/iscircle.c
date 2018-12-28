@@ -42,7 +42,7 @@ static void iscircle(list head)
 		INFOUTPUT("iscircle error :head NULL \n");
 		return;
 	}
-	else
+	else 
 	{
 		while (head->pnext != NULL && head->pnext->pnext != NULL)
 		{

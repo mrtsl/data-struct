@@ -6,7 +6,7 @@ static void DelNode(list head,int data)
 	Node *temp2 = NULL;
 	
 	if(head == NULL)
-	{
+	{ 
 		INFOUTPUT("NULL list\n");
 	}
 	else if(head->pnext == NULL)

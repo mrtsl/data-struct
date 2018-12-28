@@ -24,6 +24,6 @@ static void link(list head)
 }
 void fun_link(list head)
 {
-	link(head);
+	link(head); 
 	DisplayList(head);
 }

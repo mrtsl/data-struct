@@ -40,7 +40,7 @@ void InitListNode(list *head ,int count)
 
 void FreeList(list head)
  {
- 	list p = NULL;
+ 	list p = NULL; 
 	list q = NULL;
 	
 	if(head == NULL)
@@ -99,9 +99,11 @@ void DisplayList(list  head)
 		temp = temp->pnext;
 		while(temp != NULL)
 		{			
-			INFOUTPUT(" id : %d ,data : %d \n",temp->id,temp->data);
+			//INFOUTPUT(" id : %d ,data : %d \n",temp->id,temp->data);
+			INFOUTPUT(" No.%d:%d ->",temp->id,temp->data);
 			temp = temp->pnext;
 		}
+		INFOUTPUT("NULL\n");
 	}
 }  
 
@@ -122,9 +124,6 @@ list initlist(int count)
 	}
 	
 	//DisplayList(list);
-	//lst = SameData(list);
-	//DisplaySameLists(lst);
-	//FreeLists(lst);
 	//FreeList(list);
 }
 

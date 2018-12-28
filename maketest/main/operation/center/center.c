@@ -15,7 +15,7 @@ static void center(list head)
 		{
 			INFOUTPUT("NO NODES\n");
 		}
-		else if(head->pnext->pnext == NULL)
+		else if(head->pnext->pnext == NULL) 
 		{
 			INFOUTPUT("center node : id : %d , data: %d",head->pnext->id,head->pnext->data);
 		}
@@ -58,7 +58,7 @@ static void center(list head)
 					break;
 				}
 			}
-			INFOUTPUT("center node : id : %d , data: %d",slow->pnext->id,slow->pnext->data);
+			INFOUTPUT("center node : id : %d , data: %d\n",slow->pnext->id,slow->pnext->data);
 		}
 	}
 }
